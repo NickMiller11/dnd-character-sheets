@@ -1,0 +1,15 @@
+<h1>Create an Account</h1>
+
+<form method="post" action="/users/new">
+  <div>
+    <label for="username"> Username:
+      <input name="username" value="<%= params[:username] %>" />
+    </label>
+  </div>
+  <div>
+    <label for="password"> Password:
+      <input type="password" label="Password:" name="password" />
+    </label>
+  </div>
+  <button type="submit">Create Account</button>
+</form>

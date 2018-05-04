@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/dnd.css">
+  </head>
+
+  <body>
+    <% if session[:message] %>
+      <div id="flash">
+        <%= session.delete(:message) %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

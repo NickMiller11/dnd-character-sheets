@@ -1,0 +1,43 @@
+<h1>Character Name: <%= @name.capitalize %></h1>
+<p><a href="/dicerolls">Open yer dice pouch</a></p>
+
+<table class="padding_header">
+  <tr>
+    <th>Level: <%= @level %></th>
+    <th>Experience: <%= @experience %> <a href="/expedit">Edit</a></th>
+    <th>Armor Class: 15</th>
+  </tr>
+</table><br>
+
+
+
+<table class="padding_body">
+    <tr>
+      <th>Ability</th>
+      <th>Value</th>
+    </tr>
+  <% @abilities.each do |ability, value| %>
+    <tr>
+      <td><%= ability.capitalize %></td>
+      <td><%=value %></td>
+      <td><a href="/<%= ability %>/edit">Edit</a></td>
+    </tr>
+
+  <% end %>
+</table><br>
+
+<table class="padding_body">
+    <tr>
+      <th>Skill</th>
+      <th>Value</th>
+    </tr>
+  <% @skills.each do |skill, value| %>
+    <tr>
+      <td><%= skill %></td>
+      <td>+ <%=value %></td>
+    </tr>
+
+  <% end %>
+</table>
+
+<p>You are signed in. <a href="/users/signout">Sign Out</a></p>

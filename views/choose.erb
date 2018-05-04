@@ -1,0 +1,20 @@
+<h1>Choose your character</h1>
+
+<form action="/choose" method="post">
+  <% @single_users_characters.each do |character,_| %>
+
+      <div>
+        <input type="radio" name="char" value="<%= character %>"><%= character %><br>
+      </div>
+
+  <% end %><br>
+  <button type="submit">Choose Character</button>
+</form><br>
+
+<em><a href="/createcharacter">Create a new character</a></em>
+
+<!--<form action="">-->
+<!--  <input type="radio" name="gender" value="male"> Male<br>-->
+<!--  <input type="radio" name="gender" value="female"> Female<br>-->
+<!--  <input type="radio" name="gender" value="other"> Other-->
+<!--</form>-->

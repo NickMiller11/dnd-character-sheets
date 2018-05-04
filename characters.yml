@@ -1,0 +1,60 @@
+---
+nick:
+  Roland:
+    experience: 5000
+    armorclass: 15
+    abilities:
+      strength: 9
+      dexterity: 18
+      constitution: 13
+      intelligence: 10
+      wisdom: 14
+      charisma: 18
+    skills:
+      Acrobatics: 6
+      Animal Handling: 3
+      Arcana: 1
+      Athletics: 0
+      Deception: 8
+      History: 1
+      Insight: 3
+      Intimidation: 6
+      Investigation: 1
+      Medicine: 3
+      Nature: 1
+      Perception: 3
+      Performance: 5
+      Persuation: 8
+      Religion: 1
+      Slight of Hand: 6
+      Stealth: 6
+      Survival: 3
+  Liam:
+    experience: 300
+    armorclass: 14
+    abilities:
+      strength: 2
+      dexterity: 18
+      constitution: 13
+      intelligence: 10
+      wisdom: 14
+      charisma: 18
+    skills:
+      Acrobatics: 6
+      Animal Handling: 3
+      Arcana: 1
+      Athletics: 0
+      Deception: 8
+      History: 1
+      Insight: 3
+      Intimidation: 6
+      Investigation: 1
+      Medicine: 3
+      Nature: 1
+      Perception: 3
+      Performance: 5
+      Persuation: 8
+      Religion: 1
+      Slight of Hand: 6
+      Stealth: 6
+      Survival: 3
