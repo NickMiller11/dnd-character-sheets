@@ -71,10 +71,11 @@ get "/" do
 
 
   selected_character = load_character_data
-
   @name = session[:char]
   @experience = selected_character["experience"]
   @level = determine_level(@experience)
+  @race = selected_character["race"]
+  @class = selected_character["class"]
   @abilities = selected_character["abilities"]
   @skills = selected_character["skills"]
 
@@ -150,6 +151,9 @@ get "/users/signout" do
   redirect "/users/signin"
 end
 
+
+################# Choose and Create Character ##################
+
 get "/choose" do
   @single_users_characters = load_character_file[session[:username]] || {}
 
@@ -158,6 +162,75 @@ end
 
 post "/choose" do
   session[:char] = params[:char]
+  redirect "/"
+end
+
+get "/createcharacter" do
+  erb :create_char
+end
+
+def roll_new_ability_score
+  rolls = []
+  4.times do
+    rolls << rand(1..7)
+  end
+
+  rolls.sort[1..3].sum
+end
+
+
+post "/createcharacter" do
+  char_name = params[:char_name]
+  char_race = params[:char_race]
+  char_class = params[:char_class]
+
+  str = roll_new_ability_score
+  dex = roll_new_ability_score
+  con = roll_new_ability_score
+  int = roll_new_ability_score
+  wis = roll_new_ability_score
+  cha = roll_new_ability_score
+
+  character_info  = {char_name =>
+    {"experience"=>0,
+     "race"=>char_race,
+     "class"=>char_class,
+     "abilities"=>
+      {"strength"=>str, "dexterity"=>dex, "constitution"=>con, "intelligence"=>int, "wisdom"=>wis, "charisma"=>cha},
+     "skills"=>
+      {"Acrobatics"=>0,
+       "Animal Handling"=>0,
+       "Arcana"=>0,
+       "Athletics"=>0,
+       "Deception"=>0,
+       "History"=>0,
+       "Insight"=>0,
+       "Intimidation"=>0,
+       "Investigation"=>0,
+       "Medicine"=>0,
+       "Nature"=>0,
+       "Perception"=>0,
+       "Performance"=>0,
+       "Persuation"=>0,
+       "Religion"=>0,
+       "Slight of Hand"=>0,
+       "Stealth"=>0,
+       "Survival"=>0}}}
+
+  all_characters = load_character_file
+
+  if all_characters.keys.include?(session[:username])
+    all_characters[session[:username]].merge!(character_info)
+  else
+    all_characters[session[:username]] = character_info
+  end
+
+  File.open("characters.yml", 'w+') do |f|
+      f.write(all_characters.to_yaml)
+    end
+
+  session[:char] = char_name
+
   redirect "/"
 end
 

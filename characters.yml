@@ -2,7 +2,8 @@
 nick:
   Roland:
     experience: 5000
-    armorclass: 15
+    race: Halfling
+    class: Bard
     abilities:
       strength: 9
       dexterity: 18
@@ -31,7 +32,8 @@ nick:
       Survival: 3
   Liam:
     experience: 300
-    armorclass: 14
+    race: Half-Elf
+    class: Rogue
     abilities:
       strength: 2
       dexterity: 18
@@ -58,3 +60,5 @@ nick:
       Slight of Hand: 6
       Stealth: 6
       Survival: 3
+
+
